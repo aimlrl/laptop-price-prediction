@@ -15,8 +15,9 @@ def feature_transformation_pipeline():
     save_column_label_encodings(column_label_encodings)
     
     cleaned_transformed_data = pd.concat([transformed_data[config.REFINED_COLUMNS],transformed_data[config.TARGET_COLUMN]],axis=1)
-    ohe_df = convert_nominal_to_ohe(cleaned_transformed_data)
-    cleaned_transformed_data.drop(labels=config.NOMINAL_COLUMNS,axis=1,inplace=True)
+    present_nominal_columns = list(set(config.REFINED_COLUMNS).intersection(set(config.NOMINAL_COLUMNS)))
+    ohe_df = convert_nominal_to_ohe(cleaned_transformed_data,present_nominal_columns)
+    cleaned_transformed_data.drop(labels=present_nominal_columns,axis=1,inplace=True)
     cleaned_transformed_data = pd.concat([cleaned_transformed_data,ohe_df],axis=1)
 
     return cleaned_transformed_data

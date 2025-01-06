@@ -27,10 +27,10 @@ def clean_columns(data):
         data[column].replace(to_replace="?",value=data[column].value_counts().index[0],inplace=True)
 
         if column == "Ram":
-            data[column].apply(lambda x: float(x.split("GB")[0]))
+            data[column] = data[column].apply(lambda x: float(x.split("GB")[0]))
 
         if column == "Weight":
-            data[column].apply(lambda x: float(x.split("Kg")[0]))
+            data[column] = data[column].apply(lambda x: float(x.split("kg")[0]))
 
         if column == "Inches":
             data[column] = data[column].astype("float64")

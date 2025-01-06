@@ -16,7 +16,7 @@ REFINED_COLUMNS = ['TypeName', 'ScreenResolution', 'Cpu', 'Ram', 'Memory', 'Gpu'
 
 
 
-SAVED_ENCODINGS_PATH = "~/AiML-projects/laptop-price-prediction/project_root/encodings"
+SAVED_ENCODINGS_PATH = "encodings"
 ENCODING_FILENAME = "columns_label_encodings.pkl"
 
 

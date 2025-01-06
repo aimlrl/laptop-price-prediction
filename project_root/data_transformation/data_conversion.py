@@ -30,12 +30,12 @@ def label_encode_columns(data):
 
 
 
-def convert_nominal_to_ohe(data):
+def convert_nominal_to_ohe(data,present_nominal_columns):
 
     ohe_columns_dfs = list()
     for column in data.columns:
 
-        if column in config.NOMINAL_COLUMNS:
+        if column in present_nominal_columns:
 
             column_unique_vals = data[column].unique().shape[0]
             identity_mat = np.eye(column_unique_vals,column_unique_vals)
