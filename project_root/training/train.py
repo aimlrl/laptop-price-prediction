@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.metrics import r2_score
 
 
 
@@ -47,5 +48,8 @@ def training(epsilon,X_train_transpose,y_train,tol):
         theta_initial = theta_final
 
         print("Epoch # {}, MSE Value = {}".format(epoch_counter,mse_initial_value))
+
+    y_train_pred = theta0_final + np.matmul(X_train_transpose,theta_final)
+    print("Performance on Training Data is {}".format(r2_score(y_true=y_train,y_pred=y_train_pred)))
 
     return [theta0_final,theta_final]

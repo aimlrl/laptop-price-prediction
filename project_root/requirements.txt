@@ -5,3 +5,5 @@ scipy
 seaborn
 kaggle
 scikit-learn
+fastapi
+uvicorn[standard]

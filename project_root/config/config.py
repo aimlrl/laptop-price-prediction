@@ -23,7 +23,7 @@ ENCODING_FILENAME = "columns_label_encodings.pkl"
 COLUMNS_TO_CLEAN = ["Ram", "Weight", "Inches"]
 
 
-DEGREE = 2
+DEGREE = 1
 
 
 IS_ONLY_INTERACTION = False
@@ -34,9 +34,13 @@ CV_DATA_FRAC = 0.2
 TESTING_DATA_FRAC = 0.1
 
 
-EPSILON = 10**(-4)
+EPSILON = 10**(-2)
 TOLERANCE = 10**(-5)
+
+TRAINING_DATA_FILENAME = "training_data.csv"
+CV_DATA_FILENAME = "cv_data.csv"
+TESTING_DATA_FILENAME = "testing_data.csv"
 
 
 SAVED_MODEL_FILE = "trained_model.pkl"
-SAVED_MODEL_PATH = "~/AiML-projects/laptop-price-prediction/project_root/models"
+SAVED_MODEL_PATH = "models"

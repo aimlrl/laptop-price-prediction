@@ -15,7 +15,7 @@ def complete_pipeline():
     y_train = y[0:int(config.TRAINING_DATA_FRAC*y.shape[0])]
 
     X_cv_transpose = X_bar_transposed_engineered[int(config.TRAINING_DATA_FRAC*X_bar_transposed_engineered.shape[0]):int((config.TRAINING_DATA_FRAC+config.CV_DATA_FRAC)*X_bar_transposed_engineered.shape[0])]
-    y_cv = y[int(config.TRAINING_DATA_FRAC*y.shape[0]):int(config.TRAINING_DATA_FRAC+config.CV_DATA_FRAC*y.shape[0])]
+    y_cv = y[int(config.TRAINING_DATA_FRAC*y.shape[0]):int((config.TRAINING_DATA_FRAC+config.CV_DATA_FRAC)*y.shape[0])]
 
     X_test_transpose = X_bar_transposed_engineered[int((config.TRAINING_DATA_FRAC+config.CV_DATA_FRAC)*X_bar_transposed_engineered.shape[0]):]
     y_test = y[int((config.TRAINING_DATA_FRAC+config.CV_DATA_FRAC)*y.shape[0]):]
