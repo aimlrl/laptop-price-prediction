@@ -11,7 +11,7 @@ from sklearn.metrics import r2_score
 def run_training():
 
     if len(os.listdir(config.DATA_DIR)) == 1:
-        training_data, cv_data, testing_data = complete_pipeline()
+        training_data, cv_data, testing_data = complete_pipeline()                                       
 
         X_train_df = pd.DataFrame(training_data[0])
         y_train_df = pd.DataFrame(training_data[1])

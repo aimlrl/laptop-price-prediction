@@ -6,7 +6,6 @@ import numpy as np
 
 
 
-
 def label_encode_columns(data):
 
     columns_label_encodings = dict()
@@ -26,7 +25,6 @@ def label_encode_columns(data):
         columns_label_encodings[column_name] = dict(zip(list(input_target_df[column_name]),list(input_target_df.index)))
 
     return columns_label_encodings, data
-
 
 
 
@@ -50,8 +48,25 @@ def convert_nominal_to_ohe(data,present_nominal_columns):
         
 
 
-
 def save_column_label_encodings(columns_label_encodings):
 
     with open(os.path.join(config.SAVED_ENCODINGS_PATH,config.ENCODING_FILENAME),"wb") as file_handle:
         pickle.dump(columns_label_encodings,file_handle)
+
+
+
+def save_nominal_columns_idx(present_nominal_columns):
+
+    present_nominal_columns_idx_dict = dict(zip(present_nominal_columns,range(len(present_nominal_columns))))
+
+    with open(os.path.join(config.SAVED_ENCODINGS_PATH,config.NOMINAL_COLUMNS_IDX_FILENAME),"wb") as file_handle:
+        pickle.dump(present_nominal_columns_idx_dict,file_handle)
+
+
+
+def save_ordinal_columns_idx(present_ordinal_columns):
+
+    present_ordinal_columns_idx_dict = dict(zip(present_ordinal_columns,range(len(present_ordinal_columns))))
+
+    with open(os.path.join(config.SAVED_ENCODINGS_PATH,config.ORDINAL_COLUMNS_IDX_FILENAME),"wb") as file_handle:
+        pickle.dump(present_ordinal_columns_idx_dict,file_handle) 

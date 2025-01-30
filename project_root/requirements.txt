@@ -7,3 +7,4 @@ kaggle
 scikit-learn
 fastapi
 uvicorn[standard]
+pydantic

@@ -18,6 +18,8 @@ REFINED_COLUMNS = ['TypeName', 'ScreenResolution', 'Cpu', 'Ram', 'Memory', 'Gpu'
 
 SAVED_ENCODINGS_PATH = "encodings"
 ENCODING_FILENAME = "columns_label_encodings.pkl"
+NOMINAL_COLUMNS_IDX_FILENAME = "nominal_columns_idx.pkl"
+ORDINAL_COLUMNS_IDX_FILENAME = "ordinal_columns_idx.pkl"
 
 
 COLUMNS_TO_CLEAN = ["Ram", "Weight", "Inches"]
@@ -37,6 +39,8 @@ TESTING_DATA_FRAC = 0.1
 EPSILON = 10**(-2)
 TOLERANCE = 10**(-5)
 
+
+
 TRAINING_DATA_FILENAME = "training_data.csv"
 CV_DATA_FILENAME = "cv_data.csv"
 TESTING_DATA_FILENAME = "testing_data.csv"
@@ -44,3 +48,7 @@ TESTING_DATA_FILENAME = "testing_data.csv"
 
 SAVED_MODEL_FILE = "trained_model.pkl"
 SAVED_MODEL_PATH = "models"
+
+
+PENALTY = "l2"
+LAMBDA = 1000
