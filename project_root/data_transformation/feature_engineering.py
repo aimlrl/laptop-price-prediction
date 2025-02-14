@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import scipy.stats as s
 from config import config
+import os
+import pickle
 
 
 
@@ -15,8 +17,11 @@ def engineered_feaures(data,features_degree,is_only_interaction):
 
     if s.moment(a=y,order=3) != 0:
         y = np.log(y)
-        
-    X_transpose_engineered = nth_degree_feature_engineer.fit_transform(X_transpose)
+
+    if features_degree > 1:
+        X_transpose_engineered = nth_degree_feature_engineer.fit_transform(X_transpose)
+    else:
+        X_transpose_engineered = X_transpose
 
     return X_transpose_engineered,y
 
@@ -26,6 +31,10 @@ def engineered_feaures(data,features_degree,is_only_interaction):
 def normalize_data(X_transpose_engineered):
 
     zero_mean_one_std_scaler = StandardScaler()
-    X_bar_transpose_engineered = zero_mean_one_std_scaler.fit_transform(X_transpose_engineered)
+    zero_mean_one_std_scaler.fit(X_transpose_engineered)
+    X_bar_transpose_engineered = zero_mean_one_std_scaler.transform(X_transpose_engineered)
+
+    with open(os.path.join(config.SAVED_NORMALIZER_PATH,config.SAVED_NORMALIZER_FILE),"wb") as file_handle:
+        pickle.dump(zero_mean_one_std_scaler,file_handle)
 
     return X_bar_transpose_engineered

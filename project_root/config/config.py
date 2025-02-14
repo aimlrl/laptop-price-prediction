@@ -50,6 +50,9 @@ TESTING_DATA_FILENAME = "testing_data.csv"
 SAVED_MODEL_FILE = "trained_model.pkl"
 SAVED_MODEL_PATH = "models"
 
+SAVED_NORMALIZER_FILE = "trained_normalizer.pkl"
+SAVED_NORMALIZER_PATH = "data_transformation"
+
 
 PENALTY = "l2"
 LAMBDA = 5
